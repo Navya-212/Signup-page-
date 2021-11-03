@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="">
+        <style>
+            .container{
+                width: 400px;
+                margin: auto;
+                padding: 80px;
+                height: 200px;
+                background-color: #ababab;
+                border-radius: 15px;
+            }
+        </style>
+        <script>
+            function f1(){
+                document.getElementById("myform").reset();
+            }
+            function f2(){
+                document.getElementById("myform").innerHTML=alert("submitted details");
+            }
+            var check = function() {
+            	p1=document.getElementById('password').value;
+                p2=document.getElementById('confirm_password').value;
+                res=document.getElementById('message');
+                
+                if (p1==p2) {
+                  res.style.color = 'green';
+                  res.innerHTML = 'Matching';
+                } 
+                else {
+                  res.style.color = 'red';
+                  res.innerHTML = 'Not Matching';
+                }
+            }
+        </script>
+    </head>
+	<body>
+        <form id="myform" onsubmit="return pwdmatcher(this)">
+            <div class="container">
+            <table>
+                <tr>
+                	<td>FirstName:</td>
+                    <td><input type="text" name="f_name" required></td>
+                </tr>
+                <tr>
+                	<td>LastName:</td>
+                    <td><input type="text" name="l_name" required></td>
+                </tr>
+            	<tr>
+                	<td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                	<td>Mobile no:</td>
+                    <td><input type="number" name="mobile" required></td>
+                </tr>
+                <tr>
+                	<td>DOB:</td>
+                    <td><input type="date" name="dob" required></td>
+                </tr>
+                <tr>
+                	<td>Gender:</td>
+                    <td><input type="radio" name="gender">Female
+                    	<input type="radio" name="gender">Male
+                    </td>
+                </tr>
+                <tr>
+                	<td>Course:</td>
+                    <td>	
+                    	<select name="course" required>
+                        	<option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="it">IT</option>
+                            <option value="eee">EEE</option>
+                            <option value="mech">MECH</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                	<td>Password:</td>
+                    <td><input name="password" id="password" type="password" onkeyup='check();' /></td>
+                </tr>
+                <tr>
+                	<td>Confirm Password:</td>
+                    <td><input type="password" name="confirm_password" id="confirm_password"  onkeyup='check();' /> 
+  						<span id='message'></span>
+					</td>
+                </tr>
+                <tr>
+                	<td>
+                    	<input type="button" onclick="f2()" value="Submit">
+                		<input type="button" onclick="f1()" value="Reset">
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </form>
+        
+	</body>
+</html>
